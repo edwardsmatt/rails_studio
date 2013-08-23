@@ -1,3 +1,8 @@
-<h1>Movies</h1>
+<h1><%= @movies.size %> Movies</h1>
 
-<%= @movies %>
+<ul>
+  <% @movies.each do |movie| %>
+    <li><%= movie %></li>
+  <% end %>
+</ul>
+
