@@ -1,11 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  rating: MyString
-  total_gross: 9.99
+iron_man:
+  id: 1
+  title: "Iron Man"
+  rating: "PG-13"
+  total_gross: 134218018.0
+  description: "When wealthy industrialist Tony Stark is forced to build an armored suit after a life-threatening incident, he ultimately decides to use its technology to fight against evil."
+  released_on: "2008-05-02"
 
-two:
-  title: MyString
-  rating: MyString
-  total_gross: 9.99
+superman:
+  id: 2
+  title: "Superman"
+  rating: "PG"
+  total_gross: 34218018.0
+  description: "An alien orphan is sent from his dying planet to Earth, where he grows up to become his adoptive home's first and greatest super-hero."
+  released_on: "1978-12-15"
+
+spider_man:
+  id: 3
+  title: "Spider-Man"
+  rating: "PG-13"
+  total_gross: 403706375.0
+  description: "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family."
+  released_on: "2002-05-03"
+
+the_lone_ranger:
+  id: 4
+  title: "The Lone Ranger"
+  rating: "PG-13"
+  total_gross: 7801908.0
+  description: "Native American warrior Tonto recounts the untold tales that transformed John Reid, a man of the law, into a legend of justice."
+  released_on: "2013-07-03"
