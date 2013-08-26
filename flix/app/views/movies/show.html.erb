@@ -12,7 +12,7 @@
   </p>
   <h3>Released On</h3>
   <p>
-    <%= @movie.released_on.to_s(:release_date) %> (<%= time_ago_in_words(@movie.released_on) %> ago)
+    <%= @movie.released_on %>
   </p>
   <h3>Total Gross</h3>
   <p>
@@ -20,4 +20,4 @@
   </p>
 </article>
 
-<%= link_to("All Movies", root_path) %>
+<%= link_to "All Movies", root_path %>
