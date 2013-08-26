@@ -2,8 +2,6 @@ require "spec_helper"
 
 describe "Viewing the list of movies" do
   it "shows the movies" do
-
-
     movie1 = Movie.create(title: "Iron Man",
                           rating: "PG-13",
                           total_gross: 318412101.00,
@@ -22,13 +20,17 @@ describe "Viewing the list of movies" do
                           description: "Peter Parker gets bit by a genetically modified spider",
                           released_on: "2002-05-03")
 
-    movies = [movie1, movie1, movie3]
     visit movies_url
 
-    expect(page).to have_text("#{movies.size} Movies")
-    movies.each do |movie|
-      expect(page).to have_text(movie.title)
-    end
-  end
+    expect(page).to have_text("3 Movies")
+    expect(page).to have_text(movie1.title)
+    expect(page).to have_text(movie2.title)
+    expect(page).to have_text(movie3.title)
 
+    expect(page).to have_text(movie1.rating)
+    expect(page).to have_text(movie1.description[0..10])
+    expect(page).to have_text(movie1.released_on)
+    expect(page).to have_text("$318,412,101.00")
+  end
 end
+
