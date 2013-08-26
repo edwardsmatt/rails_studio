@@ -5,6 +5,7 @@ describe "Viewing the list of movies" do
     visit 'http://example.com/movies'
 
     expect(page).to have_text('3 Movies')
+    1.upto(3) { |n| expect(page).to have_text("Movie #{n}")}
   end
 
 end
