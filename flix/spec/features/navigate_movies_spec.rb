@@ -8,13 +8,13 @@ describe "Navigating movies" do
 
     click_link "All Movies"
 
-    expect(current_path).to eq(movies_path)
+    expect(current_path).to eq(root_path)
   end
 
   it "allows navigation from listing page to the detail page" do
     movie = Movie.create(movie_attributes)
 
-    visit movies_path
+    visit root_path
 
     click_link movie.title
 
