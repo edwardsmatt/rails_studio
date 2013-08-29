@@ -10,7 +10,8 @@ describe "Editing a movie" do
     click_link 'Edit'
 
     expect(current_path).to eq(edit_movie_path(movie))
-
     expect(find_field('Title').value).to eq(movie.title)
+    expect(find_field('Description').value).to eq(movie.description)
+    expect(find_field('Rating').value).to eq(movie.rating)
   end
 end
