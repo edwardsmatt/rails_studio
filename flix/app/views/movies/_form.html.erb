@@ -14,5 +14,7 @@
   <p><%= f.label :total_gross %> <br>
     <%= f.number_field :total_gross %></p>
 
-  <p><%= f.submit %></p>
+  <p>
+    <%= f.submit %> | <%= link_to 'Cancel', movies_path %>
+  </p>
 <% end %>
