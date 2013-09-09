@@ -30,4 +30,21 @@ describe "A Movie" do
 
     expect(Movie.released).to eq([movie3, movie2, movie1])
   end
+
+  it "returns only hit movies" do
+    movie1 = Movie.create(movie_attributes(total_gross: 300000001))
+    movie2 = Movie.create(movie_attributes(total_gross: 300000000))
+    movie3 = Movie.create(movie_attributes(total_gross: 50000000))
+
+    expect(Movie.hits).to eq([movie1, movie2])
+  end
+
+  it "returns only flop movies" do
+    movie1 = Movie.create(movie_attributes(total_gross: 50000001))
+    movie2 = Movie.create(movie_attributes(total_gross: 50000000))
+    movie3 = Movie.create(movie_attributes(total_gross: 49999999))
+    movie4 = Movie.create(movie_attributes(total_gross: 49999998))
+
+    expect(Movie.flops).to eq([movie4, movie3])
+  end
 end
