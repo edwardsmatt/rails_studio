@@ -8,6 +8,7 @@
     <header>
       <h2><%= link_to movie.title, movie_path(movie) %></h2>
     </header>
+    <p><%= image_for(movie) %></p>
     <p>
       <%= truncate(movie.description, length: 40, separator: ' ') %>
     </p>
