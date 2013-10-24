@@ -1,8 +1,6 @@
 
 <h1><%= pluralize(@movies.size, 'Movie') %></h1>
 
-<%= link_to 'Add New Movie', new_movie_path %>
-
 <% @movies.each do |movie| %>
   <article>
     <header>
@@ -29,4 +27,3 @@
   </article>
 <% end %>
 
-<%= render 'footer' %>
