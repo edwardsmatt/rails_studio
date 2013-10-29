@@ -10,5 +10,4 @@ def movie_attributes(overrides = {})
     duration: "126 min",
     image_file_name: "ironman.jpg"
   }.merge(overrides)
-
 end

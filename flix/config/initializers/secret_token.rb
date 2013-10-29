@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Flix::Application.config.secret_key_base = '468b911e8bef2a2fc2a8f0cb69ad1ca83519e26af54ac45f8ed1991b5371e410367e64e38af35156ac9b99e48a92de237fbd8cbab3cff4b57f16e61283e5a4cf'
+Flix::Application.config.secret_key_base = '11760b42198ff7a45bd1fce5b92c726d73771a10eb56f4d03726ffcfdb3436d54ae9b80d153046d41516ab15c3e61ef1911ccf87c55f9c751b84d137832a3a74'
