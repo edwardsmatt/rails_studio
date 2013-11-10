@@ -1,6 +1,17 @@
 class ReviewsController < ApplicationController
+	before_action :set_movie
+
   def index
-    @movie = Movie.find(params[:movie_id])
     @reviews = @movie.reviews
+  end
+
+  def new
+  	
+  end
+
+
+  private
+  def set_movie
+  	@movie = Movie.find(params[:movie_id])
   end
 end
