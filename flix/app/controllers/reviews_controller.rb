@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def new
-  	
+  	@review = @movie.reviews.new
   end
 
 
