@@ -26,7 +26,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.flops
-    where('total_gross < 10000000').order('total_gross asc')
+    where('total_gross < 50000000').order('total_gross asc')
   end
 
   def self.recently_added
@@ -34,10 +34,18 @@ class Movie < ActiveRecord::Base
   end
 
   def flop?
-    total_gross.blank? || total_gross < 50000000
+    total_gross.blank? || total_gross < 50000000 unless cult_classic?
+  end
+
+  def cult_classic?
+    reviews.size >= 50 && average_stars >= 4
   end
 
   def average_stars
     reviews.average(:stars)
+  end
+
+  def recent_reviews
+    reviews.order('created_at desc').limit(2)
   end
 end
