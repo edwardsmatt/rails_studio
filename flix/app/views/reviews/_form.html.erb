@@ -4,7 +4,7 @@
     <ol>
       <li class="required">
         <%= f.label :name %><br/>
-      <%= f.text_field :name, size: 40, autofocus: true %>
+        <%= f.text_field :name, size: 40, autofocus: true %>
       </li>
       <li class="required">
         <%= f.label :stars %>
@@ -16,8 +16,13 @@
       </li>
     </ol>
     <p>
-      <%= f.submit 'Post Review' %>
-      <%= link_to "Cancel", @movie, class: 'button' %>
+      <% if @review.new_record? %>
+        <%= f.submit 'Post Review' %>
+        <%= link_to "Cancel", movie_path(@movie), class: 'button' %>
+      <% else %>
+        <%= f.submit 'Update Review' %>
+        <%= link_to "Cancel", movie_reviews_path(@movie), class: 'button' %>
+      <% end %>
     </p>
   </fieldset>
 <% end %>
