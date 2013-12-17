@@ -12,11 +12,17 @@ class ReviewsController < ApplicationController
   def create
   	@review = @movie.reviews.new(review_params)
     if @review.save
-      redirect_to movie_reviews_path(@movie), 
+      redirect_to movie_reviews_path(@movie),
                   notice: "Thanks for your review!"
     else
       render :new
     end
+  end
+
+  def destroy
+    @review = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to movies_url, alert: 'Movie was successfully deleted!'
   end
 
 
