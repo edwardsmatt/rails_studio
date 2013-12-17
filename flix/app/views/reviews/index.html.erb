@@ -11,6 +11,9 @@
       <p>
         &quot;<%= review.comment %>&quot;
       </p>
+      <%= link_to 'Delete', movie_review_path(@movie, review),
+                  class: 'button',
+                  method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
 </ol>
