@@ -14,8 +14,8 @@ describe "Viewing an individual movie" do
     expect(page).to have_text(movie.director)
     expect(page).to have_text(movie.duration)
     expect(page).to have_selector("img[src$='#{movie.image_file_name}']")
-  end  
-  
+  end
+
   it "shows the total gross if the total gross exceeds $50M" do
     movie = Movie.create(movie_attributes(total_gross: 60000000))
 
@@ -30,5 +30,17 @@ describe "Viewing an individual movie" do
     visit movie_url(movie)
 
     expect(page).to have_text("Flop!")
+  end
+
+  it "shows the total gross if it's a cult classic" do
+    movie = Movie.create(movie_attributes(total_gross: 40000000))
+
+    50.times do
+      movie.reviews.create(review_attributes(stars: 4))
+    end
+
+    visit movie_url(movie)
+
+    expect(page).to have_text("40,000,000.00")
   end
 end

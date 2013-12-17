@@ -13,6 +13,21 @@ describe "A movie" do
     expect(movie).not_to be_flop
   end
 
+  it "is not a flop if it has more than 50 reviews with an average of 4 stars or better" do
+    cult_classic_movie = Movie.create(movie_attributes(total_gross: 15))
+
+     expect(cult_classic_movie).to be_flop
+     expect(cult_classic_movie).not_to be_cult_classic
+
+    50.times do
+      cult_classic_movie.reviews.create(review_attributes(stars: 4))
+    end
+
+
+    expect(cult_classic_movie).not_to be_flop
+    expect(cult_classic_movie).to be_cult_classic
+  end
+
   it "is released when the released on date is in the past" do
     movie = Movie.create(movie_attributes(released_on: 3.months.ago))
 
@@ -154,5 +169,15 @@ describe "A movie" do
     expect {
       movie.destroy
     }.to change(Review, :count).by(-1)
+  end
+
+  it "calculates the average number of review stars" do
+    movie = Movie.create(movie_attributes)
+
+    movie.reviews.create(review_attributes(stars: 1))
+    movie.reviews.create(review_attributes(stars: 3))
+    movie.reviews.create(review_attributes(stars: 5))
+
+    expect(movie.average_stars).to eq(3)
   end
 end
